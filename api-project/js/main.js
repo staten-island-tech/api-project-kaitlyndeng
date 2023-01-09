@@ -1,5 +1,5 @@
 import "./style.css";
-const URL = "https://www.fishwatch.gov/api/species";
+const URL = "https://api.quotable.io/random";
 
 async function getData(URL) {
   try {
