@@ -1,6 +1,7 @@
 import "./style.css";
-let pokemon = "ditto";
-const URL = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+
+let fish = "red-snapper";
+const URL = `https://www.fishwatch.gov/api/species/${fish}`;
 async function getData(URL) {
   try {
     const response = await fetch(URL);
@@ -18,3 +19,4 @@ async function getData(URL) {
   }
 }
 getData(URL);
+data.forEach;
