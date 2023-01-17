@@ -1,6 +1,43 @@
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+@import url(variables.css);
+
+html,
+ body,
+ *{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-size: 62.5%;
+   font-family: 'Days One', sans-serif;
+ } 
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 30px;
+}
+
+.form-input {
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  font-size: 2rem;
+}
+
+.btn {
+  margin: 30px;
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 1rem;
+  background-color: rgb(255, 255, 255);
+}
+
+.card{
+  padding: 30px;
+  margin: 20px;
+  border-radius: 30px;
+  align-items: center;
 }

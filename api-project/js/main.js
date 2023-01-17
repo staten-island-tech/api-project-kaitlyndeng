@@ -1,4 +1,5 @@
 import "../styles/style.css";
+import {DOMSelectors} from "./dom";
 
 let species = "atlantic-cod";
 const URL = `https://www.fishwatch.gov/api/species/${species}`;
@@ -15,48 +16,54 @@ async function getData(URL) {
     }
   } catch (error) {
     console.log(error);
-    console.log("bad");
   }
 }
 getData(URL);
 
-function explain(species) {
-  const explainPromise = new Promise(function (resolve, reject) {
-    resolve(`This is the ${species}.`);
-  });
-  return explainPromise;
-}
+// function explain(species) {
+//   const explainPromise = new Promise(function (resolve, reject) {
+//     resolve(`This is the ${species}.`);
+//   });
+//   return explainPromise;
+// }
 
-const redsnapper = explain("atlantic cod");
+// const redsnapper = explain("red snapper");
 
-redsnapper.then((result) => {
-  console.log(result);
-});
+// redsnapper.then((result) => {
+//   console.log(result);
+// });
 
 // const listFish = species.forEach((species) => {
 //   StartPg(species);
 // });
 // listFish();
 
-DOMSelectors.form.addEventlistener("submit", function all(e) {
-  e.preventDefault();
-  console.log(e);
-  clear();
-  function card() {
-    let category = DOMSelectors.category.value;
-  }
+DOMSelectors.form.addEventlistener("submit", function (event) {
+  event.preventDefault();
+  console.log(event);
+  // function card() {
+  //   let category = DOMSelectors.category.value;
+  
   function insert() {
-    species.forEach((species) =>
+
       DOMSelectors.box.insertAdjacentHTML(
         "beforeend",
         `<div class="card">
-      <h2 class="name"></h2>
-      <img class="image" src=""/>
-      <h3 class="funfact"></h3>
+      <h2 id="category">${category}</h2>
+      // <img class="image" src="${url}"/>
+      // <h3 class="funfact"></h3>
+      <button type= "button" class="button">Search</button>
       </div>`
-      )
-    );
-  }
-});
-card();
+      );
+};
+
+
 insert();
+card();
+})
+
+function clear() {
+  DOMSelectors.category.value = "";
+}
+
+clear();
