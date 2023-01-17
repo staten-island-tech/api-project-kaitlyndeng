@@ -1,8 +1,8 @@
 import "../styles/style.css";
-import {DOMSelectors} from "./dom";
+import { DOMSelectors } from "./dom";
 
-let species = "atlantic-cod";
-const URL = `https://www.fishwatch.gov/api/species/${species}`;
+let species = "";
+const api = `https://www.fishwatch.gov/api/species/${species}`;
 async function getData(URL) {
   try {
     const response = await fetch(URL);
@@ -14,11 +14,9 @@ async function getData(URL) {
 
       console.log("good");
     }
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
-getData(URL);
+getData(api);
 
 // function explain(species) {
 //   const explainPromise = new Promise(function (resolve, reject) {
@@ -41,26 +39,23 @@ getData(URL);
 DOMSelectors.form.addEventlistener("submit", function (event) {
   event.preventDefault();
   console.log(event);
-  // function card() {
-  //   let category = DOMSelectors.category.value;
-  
+  function card() {
+    let category = DOMSelectors.category.value;
+  }
   function insert() {
-
-      DOMSelectors.box.insertAdjacentHTML(
-        "beforeend",
-        `<div class="card">
+    DOMSelectors.box.insertAdjacentHTML(
+      "beforeend",
+      `<div class="card">
       <h2 id="category">${category}</h2>
       // <img class="image" src="${url}"/>
       // <h3 class="funfact"></h3>
-      <button type= "button" class="button">Search</button>
       </div>`
-      );
-};
+    );
+  }
 
-
-insert();
-card();
-})
+  insert();
+  card();
+});
 
 function clear() {
   DOMSelectors.category.value = "";
