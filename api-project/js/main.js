@@ -1,8 +1,8 @@
 import "../styles/style.css";
 import { DOMSelectors } from "./dom";
 
-let species = "";
-const api = `https://www.fishwatch.gov/api/species/${species}`;
+let characters = "Hannah Montana";
+const api = `https://api.disneyapi.dev/characters/${characters}`;
 async function getData(URL) {
   try {
     const response = await fetch(URL);
@@ -31,34 +31,33 @@ getData(api);
 //   console.log(result);
 // });
 
-// const listFish = species.forEach((species) => {
-//   StartPg(species);
-// });
-// listFish();
+const listAll = data.forEach((data) => {
+  StartPg(data);
+});
+listAll();
 
-DOMSelectors.form.addEventlistener("submit", function (event) {
-  event.preventDefault();
-  console.log(event);
-  function card() {
-    let category = DOMSelectors.category.value;
-  }
-  function insert() {
-    DOMSelectors.box.insertAdjacentHTML(
-      "beforeend",
-      `<div class="card">
+document.getElementById("form").addEventListener(
+  "submit",
+  function (event) {
+    clear();
+    event.preventDefault();
+    console.log(event);
+    data.forEach((data) =>
+      DOMSelectors.box.insertAdjacentHTML(
+        "beforeend",
+        `<div class="card">
       <h2 id="category">${category}</h2>
       // <img class="image" src="${url}"/>
       // <h3 class="funfact"></h3>
       </div>`
+      )
     );
   }
 
-  insert();
-  card();
-});
+  // insert();
+  // card();
+);
 
 function clear() {
   DOMSelectors.category.value = "";
 }
-
-clear();
