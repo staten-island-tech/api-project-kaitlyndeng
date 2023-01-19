@@ -1,7 +1,7 @@
 import "../styles/style.css";
 import { DOMSelectors } from "./dom";
 
-let characters = "Hannah Montana";
+let characters = "6";
 const api = `https://api.disneyapi.dev/characters/${characters}`;
 async function getData(URL) {
   try {
@@ -17,6 +17,9 @@ async function getData(URL) {
   } catch (error) {}
 }
 getData(api);
+
+const idCharacter = data.forEach((data) => console.log(data.data._id));
+idCharacter();
 
 // function explain(species) {
 //   const explainPromise = new Promise(function (resolve, reject) {
@@ -36,28 +39,29 @@ const listAll = data.forEach((data) => {
 });
 listAll();
 
-document.getElementById("form").addEventListener(
-  "submit",
-  function (event) {
-    clear();
-    event.preventDefault();
-    console.log(event);
-    data.forEach((data) =>
-      DOMSelectors.box.insertAdjacentHTML(
-        "beforeend",
-        `<div class="card">
-      <h2 id="category">${category}</h2>
-      // <img class="image" src="${url}"/>
-      // <h3 class="funfact"></h3>
-      </div>`
-      )
-    );
-  }
+// document.getElementById("form").addEventListener(
+//   "submit",
+//   function (event) {
+//     clear();
+//     event.preventDefault();
+//     console.log(event);
+//     // data.forEach((data.element) => {DOMSelectors.box.insertAdjacentHTML(
+//     //   "beforeend",
+//     //   `<div class="card">
+//     // <h2 id="category">${element.category}</h2>
+//     // // <img class="image" src="${element.imageUrl}"/>
+//     // // <h3 class="funfact"></h3>
+//     // </div>`
+//     // )}
 
-  // insert();
-  // card();
-);
+//     );
+//   }
+
+// insert();
+// card();
+// );
 
 function clear() {
   DOMSelectors.category.value = "";
 }
+clear();
