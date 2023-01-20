@@ -1,43 +1,46 @@
 import "../styles/style.css";
 import { DOMSelectors } from "./dom";
 
-let characters = "6";
-const api = `https://api.disneyapi.dev/characters/${characters}`;
-async function getData(URL) {
-  try {
-    const response = await fetch(URL);
-    if (response.status < 200 || response.status > 299) {
-      throw new Error(response);
-    } else {
-      const data = await response.json();
-      document.getElementById("api-response").textContent = data.content;
+// let first = "Hannah";
+// let last = "Montana";
+const api = `https://api.disneyapi.dev`;
+// async function getData(api) {
+//   try {
+//     const response = await fetch(api);
+//     if (response.status < 200 || response.status > 299) {
+//       throw new Error(response);
+//     } else {
+//       const data = await response.json();
+//       console.log(data.data);
 
-      console.log("good");
-    }
-  } catch (error) {}
-}
-getData(api);
+//       // document.getElementById("api-response").textContent = data.content;
 
-const idCharacter = data.forEach((data) => console.log(data.data._id));
-idCharacter();
-
-// function explain(species) {
-//   const explainPromise = new Promise(function (resolve, reject) {
-//     resolve(`This is the ${species}.`);
-//   });
-//   return explainPromise;
+//       // console.log("good");
+//     }
+//   } catch (error) {}
 // }
 
-// const redsnapper = explain("red snapper");
+// getData(api);
 
-// redsnapper.then((result) => {
-//   console.log(result);
-// });
+async function getCharacter() {
+  const response = await fetch(api);
+  const data = await response.json();
+  console.log(data.data);
 
-const listAll = data.forEach((data) => {
-  StartPg(data);
-});
-listAll();
+  const character = data.data[0];
+  let features = data.films;
+  let image = data.imageUrl;
+
+  DOMSelectors.box.insertAdjacentHTML(
+    "beforeend",
+    `<div class="card">
+    <h2 id="features">${features}</h2>
+    <img class="image" src="${image}"/>
+    </div>`
+  );
+}
+
+getCharacter();
 
 // document.getElementById("form").addEventListener(
 //   "submit",
@@ -45,14 +48,14 @@ listAll();
 //     clear();
 //     event.preventDefault();
 //     console.log(event);
-//     // data.forEach((data.element) => {DOMSelectors.box.insertAdjacentHTML(
-//     //   "beforeend",
-//     //   `<div class="card">
-//     // <h2 id="category">${element.category}</h2>
-//     // // <img class="image" src="${element.imageUrl}"/>
-//     // // <h3 class="funfact"></h3>
-//     // </div>`
-//     // )}
+// data.forEach((data.element) => {DOMSelectors.box.insertAdjacentHTML(
+//   "beforeend",
+//   `<div class="card">
+// <h2 id="category">${element.category}</h2>
+// // <img class="image" src="${element.imageUrl}"/>
+// // <h3 class="funfact"></h3>
+// </div>`
+// )}
 
 //     );
 //   }
@@ -61,7 +64,7 @@ listAll();
 // card();
 // );
 
-function clear() {
-  DOMSelectors.category.value = "";
-}
-clear();
+// function clear() {
+//   DOMSelectors.category.value = "";
+// }
+// clear();
