@@ -25,19 +25,17 @@ const api = `https://api.disneyapi.dev/characters`;
 async function getCharacter() {
   const response = await fetch(api);
   const data = await response.json();
-  console.log(data.data);
-
-  const character = data.data[0];
-  let features = data.films;
-  let image = data.imageUrl;
-
-  DOMSelectors.box.insertAdjacentHTML(
-    "beforeend",
-    `<div class="card">
-    <h2 id="features">${features}</h2>
-    <img class="image" src="${image}"/>
+  data.data.forEach((element) =>
+    DOMSelectors.box.insertAdjacentHTML(
+      "beforeend",
+      `<div class="card">
+    <h2 class="name">${element.name}</h2>
+    <img class="image" src="${element.imageUrl}"/>
+    <h3 class="features">${element.films}</h3>
     </div>`
+    )
   );
+  console.log(data.data);
 }
 
 getCharacter();
