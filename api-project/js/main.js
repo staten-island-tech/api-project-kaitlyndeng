@@ -3,7 +3,7 @@ import { DOMSelectors } from "./dom";
 
 // let first = "Hannah";
 // let last = "Montana";
-const api = `https://api.disneyapi.dev`;
+const api = `https://api.disneyapi.dev/characters`;
 // async function getData(api) {
 //   try {
 //     const response = await fetch(api);
