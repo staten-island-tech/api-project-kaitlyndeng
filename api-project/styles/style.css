@@ -6,7 +6,7 @@ html,
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   font-size: 62.5%;
+   font-size: 2rem;
  } 
 .main-header {
   margin: 0;
@@ -39,9 +39,10 @@ html,
   background-color: rgb(255, 255, 255);
 }
 
-.card{
-  padding: 30px;
-  margin: 20px;
+.card {
+  padding: 10px;
+  margin: 10px;
   border-radius: 30px;
   align-items: center;
+  background-color: blue;
 }

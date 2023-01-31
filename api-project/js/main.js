@@ -1,8 +1,6 @@
 import "../styles/style.css";
 import { DOMSelectors } from "./dom";
 
-// let first = "Hannah";
-// let last = "Montana";
 const api = `https://api.disneyapi.dev/characters`;
 // async function getData(api) {
 //   try {
@@ -22,7 +20,7 @@ const api = `https://api.disneyapi.dev/characters`;
 
 // getData(api);
 
-async function getCharacter() {
+async function listAll() {
   const response = await fetch(api);
   const data = await response.json();
   data.data.forEach((element) =>
@@ -31,38 +29,13 @@ async function getCharacter() {
       `<div class="card">
     <h2 class="name">${element.name}</h2>
     <img class="image" src="${element.imageUrl}"/>
-    <h3 class="features">${element.films}</h3>
+    <h3 class="features">${element.films} ${element.tvShows} ${element.videoGames} ${element.shortFilms}</h3>
     </div>`
     )
   );
   console.log(data.data);
 }
+listAll();
 
-getCharacter();
 
-// document.getElementById("form").addEventListener(
-//   "submit",
-//   function (event) {
-//     clear();
-//     event.preventDefault();
-//     console.log(event);
-// data.forEach((data.element) => {DOMSelectors.box.insertAdjacentHTML(
-//   "beforeend",
-//   `<div class="card">
-// <h2 id="category">${element.category}</h2>
-// // <img class="image" src="${element.imageUrl}"/>
-// // <h3 class="funfact"></h3>
-// </div>`
-// )}
 
-//     );
-//   }
-
-// insert();
-// card();
-// );
-
-// function clear() {
-//   DOMSelectors.category.value = "";
-// }
-// clear();
