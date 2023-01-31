@@ -1,8 +1,10 @@
 const DOMSelectors = {
   box: document.getElementById("box"),
-  form: document.getElementById("form"),
-  button: document.getElementById("button"),
-  search: document.getElementById("search")
+  common: document.getElementById("common"),
+  uncommon: document.getElementById("uncommon"),
+  rare: document.getElementById("rare"),
+  ultrarare: document.getElementById("ultra-rare"),
+  all: document.getElementById("all"),
 };
 
 export {DOMSelectors};
