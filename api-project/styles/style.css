@@ -70,3 +70,13 @@ html,
   font-family: 'Raleway', sans-serif;
 }
 
+.reset{
+  border-radius: 50px;
+  font-size: 1rem;
+  padding: 10px;
+  margin: 10px;
+  background-color: blanchedalmond;
+  font-family: 'Raleway', sans-serif;
+  align-items: center;
+  text-align: center;
+}

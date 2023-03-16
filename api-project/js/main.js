@@ -1,6 +1,6 @@
 import "../styles/style.css";
 import { DOMSelectors } from "./dom";
-const url = "https://api.disneyapi.dev/characters";
+
 
 
 // async function getData(url) {
@@ -24,8 +24,10 @@ const url = "https://api.disneyapi.dev/characters";
 DOMSelectors.form.addEventListener("submit", function (e) {
 e.preventDefault();
 console.log(e);
-  let userInput = DOMSelectors.userInput.value;
 
+for (let page = 1; page < 149 ; page++){
+  const url = `https://api.disneyapi.dev/characters?page=${page}`;
+  let userInput = DOMSelectors.userInput.value;
   async function specificCharacter(url) {
     try {
       const response = await fetch(url);
@@ -59,12 +61,15 @@ console.log(e);
       );
     }
   }
+
   specificCharacter(url, userInput);
-});
+}});
 
-function clear() {
-  DOMSelectors.box.innerHTML = "";
-  DOMSelectors.userInput.innerHTML = "";
-}
 
-clear();
+
+DOMSelectors.reset.addEventListener("click", function () {
+ 
+    DOMSelectors.box.innerHTML = "";
+userInput.value= "";
+
+})
