@@ -1,7 +1,7 @@
 import "../styles/style.css";
 import { DOMSelectors } from "./dom";
+const url = "https://api.disneyapi.dev/characters";
 
-const url = "https://api.disneyapi.dev/characters?pageSize=7450";
 
 // async function getData(url) {
 //   try {
@@ -22,15 +22,15 @@ const url = "https://api.disneyapi.dev/characters?pageSize=7450";
 // getData(url);
 
 DOMSelectors.form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  console.log(e);
+e.preventDefault();
+console.log(e);
   let userInput = DOMSelectors.userInput.value;
 
-  async function specificCharacter(url, userInput) {
+  async function specificCharacter(url) {
     try {
-      const response = await fetch(url, userInput);
+      const response = await fetch(url);
       const data = await response.json();
-      data
+      data.data
         .filter((element) => element.name.includes(`${userInput}`))
         .map((element) => {
           DOMSelectors.box.insertAdjacentHTML(
