@@ -68,6 +68,8 @@ html,
   margin: 10px;
   background-color: blanchedalmond;
   font-family: 'Raleway', sans-serif;
+  align-items: center;
+  text-align: center;
 }
 
 .reset{
