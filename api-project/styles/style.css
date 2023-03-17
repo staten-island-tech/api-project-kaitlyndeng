@@ -54,13 +54,9 @@ html,
   align-items: center;
   text-align: left;
 }
-.name {
-  text-align: center;
-}
 
-.label{
-  font-size: 1.25rem;
-}
+
+
 .button {
   border-radius: 50px;
   font-size: 1rem;
@@ -68,8 +64,7 @@ html,
   margin: 10px;
   background-color: blanchedalmond;
   font-family: 'Raleway', sans-serif;
-  align-items: center;
-  text-align: center;
+
 }
 
 .reset{
