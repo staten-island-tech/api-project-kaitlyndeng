@@ -56,7 +56,7 @@ DOMSelectors.button.addEventListener("click", function(){
           DOMSelectors.box.insertAdjacentHTML(
             "beforeend",
             `<div class="card">
-            <img class="image" src="${element.imageUrl}" alt="">
+            <img class="image" src="${element.imageUrl}" alt="Photo: ${element.fullName}">
             <h2 class="name">${element.fullName}</h2>
             <h3>Family: ${element.family}</h3>
           </div>
